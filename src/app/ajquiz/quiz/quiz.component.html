@@ -1,20 +1,14 @@
 <div class="container">
-    <h3 style="text-align:center">
-      Välkommen till Quizen &#x263A;
-    </h3>
+    <h1 style="text-align:center">
+      Välkommen till Andreas snabbquiz!
+    </h1>
     <div class="card" [hidden]="isQuestionCardShow">
       <div class="card-body">
-        <h5 class="card-title" style="text-align:center">Välj alternativ &#x263A; </h5>
-        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-        <div class="row justify-content-md-center">
-          <div class="col-sm-12 col-lg-3">
-            <button class="btn btn-block btn-outline-primary cursor-restriction" (click)="addQuestion()" style="margin-top: 24px;">
-              Lägg till fråga </button>
-  
-          </div>
+          <div class="row justify-content-md-center">
+
           <div class="col-sm-12 col-lg-3">
             <button class="btn btn-block btn-outline-primary cursor-restriction" style="margin-top: 24px;" (click)="startQuiz()">
-              Start Quiz </button>
+              Starta</button>
           </div>
         </div>
       </div>
@@ -22,16 +16,16 @@
     <div class="card" [hidden]="!isQuestionCardShow">
       <div class="card-body">
         <form #questionTest="ngForm" novalidate>
-          <div *ngFor="let ques of allQuestions">
+          <div *ngFor="let ques of allQuestions; let idx = index">
             <div>{{ques.question}}</div>
-            <div class="form-group row">
+            <div class="form-group row" tabindex="0">
               <label class="col-md-3 col-form-label">Välj rätt alternativ</label>
               <div class="col-md-9 col-form-label">
                 <div class="form-check form-check-inline mr-1">
-                  <input class="form-check-input" type="radio" name="{{ques.id}}" value="a" [(ngModel)]="ques.selected">
+                  <input class="form-check-input"  type="radio" name="{{ques.id}}" value="a" [(ngModel)]="ques.selected">
                   <label class="form-check-label">a) {{ques.a}} </label>
                 </div>
-                <div class="form-check form-check-inline mr-1">
+                <div class="form-check form-check-inline mr-1" >
                   <input class="form-check-input" type="radio" name="{{ques.id}}" value="b" [(ngModel)]="ques.selected">
                   <label class="form-check-label">b) {{ques.b}}</label>
                 </div>
@@ -50,8 +44,8 @@
         </form>
         <div class="row">
           <div class="col-12" style="justify-content: center;display: flex;">
-            <button type="button" class="btn btn-default" (click)="HomePage()" style="margin-right: 30px;">Avbryt</button>
-            <button type="button" class="btn btn-primary" (click)="submitTest()">Svara</button>
+            <button type="button" class="btn btn-default"  (click)="HomePage()" style="margin-right: 30px;">Avbryt</button>
+            <button type="button" class="btn btn-primary"  (click)="submitTest()">Svara</button>
           </div>
         </div>
       </div>
@@ -70,9 +64,9 @@
             Rätt svar : {{rightAnswer}}
           </h4>
           <span>
-            <button type="button" class="btn btn-primary" (click)="checkAnswers()" style="margin-right: 17px;"> Answers</button>
+            <button type="button" class="btn btn-primary" (click)="checkAnswers()" style="margin-right: 17px;">Se svaren</button>
           </span>
-          <button type="button" class="btn btn-default" (click)="submitModal.hide()" style="margin-left: 17px;">Close</button>
+          <button type="button" class="btn btn-default" (click)="submitModal.hide()" style="margin-left: 17px;">Stäng</button>
         </div>
       </div>
       <!-- /.modal-content -->
@@ -157,7 +151,7 @@
                 </div>
               </div>
             </div>
-  
+
             <div class="form-group row">
               <label class="col-md-12 label-font">Välj rätt svar
                 <span style="color:red;" [hidden]="!(answer?.invalid)">*</span>
@@ -205,7 +199,7 @@
             <div>Rätt svar: {{ques.answer}}) {{ques[ques.answer]}}</div>
             <hr>
           </div>
-          <button type="button" class="btn btn-default" (click)="answerModal.hide()" style="margin-left: 17px;">Close</button>
+          <button type="button" class="btn btn-default" (click)="answerModal.hide()" style="margin-left: 17px;">Stäng</button>
         </div>
       </div>
       <!-- /.modal-content -->

@@ -30,29 +30,29 @@ export class QuizComponent implements OnInit {
 
 	allQuestions: any = [{
 		"id": 1,
-		"question": "What is the capital of Belgium?",
-		"a": "Vienna",
+		"question": "Vad heter Belgiens huvudstad?",
+		"a": "Wien",
 		"b": "Berlin",
-		"c": "Brussels",
-		"d": "Prague",
+		"c": "Bryssel",
+		"d": "Prag",
 		"answer": "c"
 	},
 	{
 		"id": 2,
-		"question": "What is the capital of Australia?",
-		"a": "Vienna",
-		"b": "Canberra",
-		"c": "Brussels",
-		"d": "Prague",
+		"question": "Vad heter Australiens huvudstad?",
+		"a": "Wien",
+		"b": "Camberra",
+		"c": "Bryssel",
+		"d": "Prag",
 		"answer": "b"
 	},
 	{
 		"id": 3,
-		"question": "What is the capital of Bulgaria?",
-		"a": "Vienna",
+		"question": "Vad heter Bulgariens huvudstad?",
+		"a": "Wien",
 		"b": "Sofia",
-		"c": "Brussels",
-		"d": "Prague",
+		"c": "Bryssel",
+		"d": "Prag",
 		"answer": "b"
 	}
 	];
@@ -96,7 +96,7 @@ export class QuizComponent implements OnInit {
 		quesTemp["id"] = this.allQuestions.length+1;
 		this.allQuestions.push(quesTemp);
 		this.questionForm.reset();
-		this.toastr.success("Question Added Successfully!!");
+		this.toastr.success("Du har lagt till frågan!");
 		this.addQuestionModal.hide();
 
 	}
